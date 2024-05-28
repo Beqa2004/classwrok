@@ -1,0 +1,42 @@
+{%  extends "base.html"%}
+{% block title %}{{title}}
+{% endblock title%}
+
+{% block content %}
+<p>{{title}}</p>
+
+<form method="post">
+    <label for="name">name: </label>
+    <input type="text" id="name" name="name">
+
+    <label for="age">age: </label>
+    <input type="text" id="age" name = "age">
+
+    <label for="semester">semester: </label>
+    <input type="text" id="semester" name = "semester">
+
+    <button type="submit">add student</button>
+</form>
+
+<h1>all students</h1>
+<table>
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Full Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+    <tr>
+    <td><a href="{{url_for('student_detail', student_id = student.id)}}">{{ student.id }}</a></td>
+    <td><a href="{{url_for('student_detail', student_id = student.id)}}">{{ student.name }}</td>
+    <td><a href="{{url_for('student_detail', student_id = student.id)}}">{{ student.semester }}</td>
+    <td><a href="{{url_for('student_detail', student_id = student.id)}}">{{ student.age }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock content%}

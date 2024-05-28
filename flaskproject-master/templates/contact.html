@@ -1,0 +1,14 @@
+{%  extends "base.html"%}
+{% block title %}{{title}}
+{% endblock title%}
+
+
+{% block content %}
+<h2>phone numbers:</h2>
+{% for number in data%}
+<li><p>+995{{ number }}</p>
+</li>
+
+
+{% endfor %}
+{% endblock content%}
